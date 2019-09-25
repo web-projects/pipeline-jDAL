@@ -9,21 +9,12 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-#jobs:
-#- job: One
 steps:
-- task: Maven@3
-  inputs:
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.7'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: false
-    testResultsFiles: '**/TEST-*.xml'
-    goals: '-X install:install-file -DLibsManager/libs/jar-in-jar-loader-1.1.jar -DgroupId=org.eclipse.jdt.internal -DartifactId=jar-in-jar-loader -Dversion=1.1 -Dpackaging=jar'
+- script: |
+    echo Starting the build...
+    mvn -X install:install-file -DLibsManager/libs/jar-in-jar-loader-1.1.jar -DgroupId=org.eclipse.jdt.internal -DartifactId=jar-in-jar-loader -Dversion=1.1 -Dpackaging=jar
+  displayName: 'Build with Maven'
 
-#- job: Two
-#  steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'ParentPom/pom.xml'
