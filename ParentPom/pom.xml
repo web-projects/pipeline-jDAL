@@ -78,7 +78,7 @@
                       <artifactId>jar-in-jar-loader</artifactId>
                       <version>1.1</version>
                       <packaging>jar</packaging>
-                      <file>${basedir}/LibsManager/libs/jar-in-jar-loader-1.1.jar</file>
+                      <file>LibsManager/libs/jar-in-jar-loader-1.1.jar</file>
                   </configuration>
               </execution>
           </executions>
