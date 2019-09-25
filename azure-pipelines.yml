@@ -20,7 +20,7 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: false
     testResultsFiles: '**/TEST-*.xml'
-    goals: 'install:install-file -D./LibsManager/libs/jar-in-jar-loader-1.1.jar -DgroupId=org.eclipse.jdt.internal -DartifactId=ar-in-jar-loader -Dversion=1.1 -Dpackaging=jar'
+    goals: '-X install:install-file -DLibsManager/libs/jar-in-jar-loader-1.1.jar -DgroupId=org.eclipse.jdt.internal -DartifactId=ar-in-jar-loader -Dversion=1.1 -Dpackaging=jar'
 
 #- job: Two
 #  steps:
