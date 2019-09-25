@@ -17,6 +17,10 @@ This a Java pipeline exercise.
 * https://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html
 
 * Database configuration
+
+* Pipeline
+### https://ss-lazio.visualstudio.com/pipelines-java
+
 * How to run tests
 * Deployment instructions
 
