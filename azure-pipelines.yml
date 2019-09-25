@@ -11,8 +11,8 @@ pool:
 
 jobs:
 - job: One
-steps:
-- task: Maven@1
+  steps:
+- task: Maven@3
   inputs:
   mavenOptions: '-Xmx3072m'
   javaHomeOption: 'JDKVersion'
@@ -22,19 +22,20 @@ steps:
   testResultsFiles: '**/TEST-*.xml'
   goals: 'install:install-file -D./LibsManager/libs/jar-in-jar-loader-1.1.jar -DgroupId=org.eclipse.jdt.internal -DartifactId=ar-in-jar-loader -Dversion=1.1 -Dpackaging=jar'
 
-- job: Two
-- task: Maven@3
-  inputs:
-  mavenPomFile: 'ParentPom/pom.xml'
-  mavenOptions: '-Xmx3072m'
-  javaHomeOption: 'JDKVersion'
-  jdkVersionOption: '1.7'
-  jdkArchitectureOption: 'x64'
-  publishJUnitResults: false
-  testResultsFiles: '**/TEST-*.xml'
+#- job: Two
+#  steps:
+#- task: Maven@3
+#  inputs:
+#  mavenPomFile: 'ParentPom/pom.xml'
+#  mavenOptions: '-Xmx3072m'
+#  javaHomeOption: 'JDKVersion'
+#  jdkVersionOption: '1.7'
+#  jdkArchitectureOption: 'x64'
+#  publishJUnitResults: false
+#  testResultsFiles: '**/TEST-*.xml'
   #goals: 'package'
   #goals: 'clean install'
-  goals: '-X install'
+#  goals: '-X install'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
