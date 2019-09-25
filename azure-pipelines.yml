@@ -10,10 +10,10 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: |
-    echo Starting the build...
-    mvn -X install:install-file -D$(system.defaultWorkingDirectory)/LibsManager/libs/jar-in-jar-loader-1.1.jar -DgroupId=org.eclipse.jdt.internal -DartifactId=jar-in-jar-loader -Dversion=1.1 -Dpackaging=jar
-  displayName: 'Build with Maven'
+#- script: |
+#    echo Starting the build...
+#    mvn -X install:install-file -D$(system.defaultWorkingDirectory)/LibsManager/libs/jar-in-jar-loader-1.1.jar -DgroupId=org.eclipse.jdt.internal -DartifactId=jar-in-jar-loader -Dversion=1.1 -Dpackaging=jar
+#  displayName: 'Build with Maven'
 
 - task: Maven@3
   inputs:
@@ -26,7 +26,7 @@ steps:
     testResultsFiles: '**/TEST-*.xml'
     #goals: 'package'
     #goals: 'clean install'
-    goals: '-X install'
+    goals: 'install'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
