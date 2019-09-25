@@ -9,10 +9,10 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-jobs:
-- job: One
-  steps:
-- task: Maven@3
+#jobs:
+#- job: One
+steps:
+  - task: Maven@3
   inputs:
   mavenOptions: '-Xmx3072m'
   javaHomeOption: 'JDKVersion'
@@ -24,18 +24,18 @@ jobs:
 
 #- job: Two
 #  steps:
-#- task: Maven@3
-#  inputs:
-#  mavenPomFile: 'ParentPom/pom.xml'
-#  mavenOptions: '-Xmx3072m'
-#  javaHomeOption: 'JDKVersion'
-#  jdkVersionOption: '1.7'
-#  jdkArchitectureOption: 'x64'
-#  publishJUnitResults: false
-#  testResultsFiles: '**/TEST-*.xml'
+  - task: Maven@3
+  inputs:
+  mavenPomFile: 'ParentPom/pom.xml'
+  mavenOptions: '-Xmx3072m'
+  javaHomeOption: 'JDKVersion'
+  jdkVersionOption: '1.7'
+  jdkArchitectureOption: 'x64'
+  publishJUnitResults: false
+  testResultsFiles: '**/TEST-*.xml'
   #goals: 'package'
   #goals: 'clean install'
-#  goals: '-X install'
+  goals: '-X install'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
