@@ -1,0 +1,98 @@
+===============================================================================
+jDAL Build Notes
+
+ENVIRONMENT: Computer with 64-bit processor and Windows 10 installed. 
+
+20181022 jbianco
+--------------------------------------------
+1. Verify c:\trustcommerce installation present on local drive
+  (obtain from RC folder if does not exist)
+
+2. Setup build environment, location; $/IPA/IPAApp/4.2.7/jDAL/tools
+
+   a. install JDK from location: jdk-7u75-windows-i586.exe  
+      default path - C:\Program Files\Java\jdk1.7.0_75
+
+   b. install maven addon (apache components) to jdk
+      location: $/IPA/IPAApp/4.2.7/jDAL/tools/apache-maven-3.3.9-bin.zip
+      i. copy unzip to c:\apache\apache-maven-3.3.9
+      ii. update user repo on line55 C:\apache\apache-maven-3.3.9\conf\settings.xml
+          <localRepository>${user.home}/.m2/repository</localRepository>
+      iii. set java compiler path to match installed JDK
+           <JAVA_32_HOME>C:\Program Files (x86)\Java\jdk1.7.0_75</JAVA_32_HOME>
+      
+   d. set variables and path for Java (if not set)
+      i. JAVA_HOME: C:\Program Files (x86)\Java\jdk1.7.0_75
+      ii. PATH    : C:\Program Files (x86)\Java\jdk1.7.0_75\bin
+      
+   c. set variables for Maven
+      i. M2_HOME: C:\apache\apache-maven-3.3.9\
+      ii. M2: %M2_HOME%\bin\
+ 
+      verify version
+      C:\Windows\system32>java -version
+      java version "1.7.0_75"
+      Java(TM) SE Runtime Environment (build 1.7.0_75-b13)
+      Java HotSpot(TM) Client VM (build 24.75-b04, mixed mode)
+
+   d. run SetupMVNRepo.bat in jDAL/LibsManager to setup local repo with jar-in-jar-loader-1.1.jar
+      check local repo: %USERPROFILE%\.m2\repository\org\eclipse\jdt\internal\jar-in-jar-loader\1.1
+      
+   e. run buildProcess.bat to build jar asset
+      navigate to TFS path for JDAL source: 
+      D:\Users\mstanley\Source\Workspaces\IPA\IPAApp\4.2.7\jDAL
+      from CMD prompt: buildProcess.bat > buildProcess.out
+      from CMD prompt: buildProcess BUILDONLY
+      example output:
+
+   f. install eclipse:
+      location: $/IPA/IPAApp/4.2.7/jDAL/tools/eclipse-jee-neon-3-win32.zip
+      install eclipse  (copy to c:\eclipse)
+
+      Add the following to eclipse.ini after the line "--launcher.defaultAction": 
+      -vm
+      C:\Program Files (x86)\Java\jdk1.7.0_75\bin\javaw.exe
+
+   g. install JDK from location: jdk-8u181-windows-i586.exe
+      (Eclipse neon-3 version requires JDK 1.8 or greater.
+   
+3. Build solution with eclipse
+   
+   a. start eclipse
+   b. Import the following projects from C:\Users\jon.bianco\source\Workspaces\IPA\IPAApp\4.2.7\jDAL
+      (Import > Import > General > Existing Projects into Workspace):
+      
+      CommonConstants
+      CommPortManager
+      ConfigurationManager
+      ConnectivityManager
+      DallInterfaces
+      DeviceManager
+      EMVConstants
+      GuiManager
+      jdalWebService
+      LibsManager
+      LogManager
+      MainManager
+      ModelObjectsManager
+      ResourcesManger
+      
+    c. On DallInterfaces, ensure Properties > Java Build Path > JRE 1.7 is set.
+       Otherwise change it: Edit > Alternate JRE: > Installed JREs > Add > Standard VM > Next > Directory > "C:\Program Files (x86)\Java\jdk1.7.0_75" > Finish > Select "jdk1.7.0_75 > OK > Workspace default JRE (jdk1.7.0_75) > Finish > OK.
+      
+    d. Verify DallInterfaces > Properties > Java Compiler > JDK level is set to 1.7
+
+-------------------------------------------------------------------------------
+20180920: jbianco
+
+1. Modified batch file to allow succesful build of jDAL artifacts.
+2. The following error may display on initial execution:
+
+The path C:\TC\IPAApp\IPA.POS\jDAL is already mapped in workspace tmp_batchws_jdal.
+
+To clear this error, use VS-IDE and remove offending TFS workspace:
+
+1. Open Source Control Explorer(View > Other Windows > Source Control Explorer)
+2. On toolbar pane there will be Workspace combo
+3. Choose 'Workspacess...'
+4. Select offending workspace and click on Remove button

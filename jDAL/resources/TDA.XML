@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<APP>
+   <Configuration>
+       <Item name="DOWNLOADTYPE" value="0" />                       <!-- DOWNLOADTYPE values: "0" for EFT "1" for ingeState "2" for pinpad agent -->
+       <Item name="EFTDOWNLOAD" value="0" />
+       <Item name="EFTERROR" value="0" />
+       <Item name="EFTLVERSION" value="0000" />
+       <Item name="EFTPVERSION" value="0000" />
+       <Item name="RKIVERSION" value="0000" />
+       <Item name="MANUFACTUREID" value="INGNAR" />
+       <Item name="PRODUCTID" value="" />                           <!-- Set to blank for Applicaiton to retrieve terminal Name" -->
+       <Item name="COMMTYPE" value="USB-CDC" />                      <!-- COMMTYPE values: "Ethernet" "Serial" "USB-HID" "USB-CDC" "Tailgate" "Bluetooth" "Serial(MB)" for Magic Box serial -->
+   </Configuration>
+   <Comm>
+       <Ethernet>
+           <Item name="TMUPDATED" value="1" />                      <!-- TMUPDATED values: "1" use telium manager settings  "0" update telium manager with XML settings ALWAYS SET TO 0 WHEN DOWNLOADING NEW FILE -->
+           <Item name="IPDHCP" value="0" />                         <!-- IPDHCP values: "0" for static IP "1" for DHCP -->
+           <Item name="IPPORT" value="12000" />
+           <Item name="IPADDRESS" value="000.000.000.000" />
+           <Item name="HOSTIPPORT" value="6000" />
+           <Item name="HOSTIPADDRESS" value="000.000.000.000" />
+           <Item name="IPSUBMASK" value="255.255.255.000" />
+           <Item name="IPGATEWAY" value="000.000.000.000" />
+           <Item name="SERVER" value="1" />                         <!-- SERVER values: "0" for client "1" for server -->
+           <Item name="IPDISPLAYINFO" value="YES" />                <!-- IPDISPLAYINFO values: YES-display IP address on splash screen NO-don't display -->  
+           <Item name="SSLMODE" value="0" />                        <!-- SSL mode: "0" for off "1' for on -->  
+       </Ethernet>
+       <Serial>                                                     <!-- Serial and Magic Box serial communication settings -->
+           <Item name="BAUDRATE" value="115200" />                  <!-- BAUDRATE values: "115200", "57600", "38400", "19200", "9600", "4800", "2400", "1200", "300" -->
+           <Item name="STOPBIT" value="1" />                        <!-- STOPBIT values: "1", "2" -->
+           <Item name="BITSPERBYTE" value="8" />                    <!-- BITSPERBYTE values: "7", "8" -->
+           <Item name="PARITY" value="NONE" />                      <!-- PARITY values "NONE", "ODD", "EVEN" -->
+           <Item name="FLOWCONTROL" value="NONE" />                 <!-- FLOWCONTROL values: "HARD", "NONE" -->
+       </Serial>
+       <Tailgate>
+           <Item name="TGADDRESS" value="64h" />                    <!-- TGADDRESS values: "64h", "65h", "68h", "69h" -->
+       </Tailgate>
+       <Bluetooth>
+           <Item name="BLUETOOTHMODE" value="" />                   <!-- Bluetooth mode -->
+           <Item name="BLUETOOTHPAIRING" value="" />                <!-- Bluetooth pairing state -->
+           <Item name="BLUETOOTHPIN" value="" />                    <!-- Bluetooth pairing PIN -->
+       </Bluetooth>
+   </Comm>
+</APP>

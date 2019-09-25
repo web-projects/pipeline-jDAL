@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Created-By: 1.0.0_01 (TrustCommerce)
+Main-Class: com.trustcommerce.ipa.dal.bridge.socket.DalActivator
+Name: jDAL
+Specification-Title: Java Ingenico Device Interface (JIDI)
+Specification-Version: 1.1
+Specification-Vendor: TrustCommerce
+Implementation-Title: TCIPA jDAL
+Implementation-Version: 4.1.10
+Implementation-Vendor: TrustCommerce
+

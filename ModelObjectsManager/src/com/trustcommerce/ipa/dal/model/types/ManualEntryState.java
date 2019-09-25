@@ -1,0 +1,14 @@
+package com.trustcommerce.ipa.dal.model.types;
+
+public enum ManualEntryState {
+	MANUAL_ENTRY_OFF, 
+	MANUAL_PAN_ENTRY,
+	MANUAL_EXP_ENTRY,
+	MANUAL_CVV_ENTRY,
+	MANUAL_CREATE_TRACKS,
+	MANUAL_ENTRY_DONE,
+	MANUAL_ENTRY_CANCELED,
+	MANUAL_ZIPCODE_ENTRY
+	
+}
+

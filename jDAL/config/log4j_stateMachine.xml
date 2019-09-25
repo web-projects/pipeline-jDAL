@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration debug="true"
+    xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+	<appender name="FILE" class="org.apache.log4j.RollingFileAppender">
+		<param name="file" value="C:/TrustCommerce/logs/stateMachine.log" />
+		<param name="Threshold" value="INFO"/>
+		<param name="append" value="true" />
+		<param name="MaxFileSize" value="6000KB"/>
+      	<param name="MaxBackupIndex" value="20"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d{yyyy-MM-dd HH:mm:ss} %-5p [%t] %C (%F:%L) - %m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="Console" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d %-5p [%t] %C{2} (%F:%L) - %m%n" />
+		</layout>
+	</appender>
+
+	<logger name="com.ingenico.comm">
+		<level value="info" />
+		<appender-ref ref="FILE" />
+	</logger>
+
+	
+	<logger name="com.ingenico.form">
+		<level value="info" />
+		<appender-ref ref="FILE" />
+	</logger>
+
+	<logger name="com.ingenico.jpos">
+		<level value="warn" />
+		<appender-ref ref="FILE" />
+	</logger>
+	
+	<logger name="com.ingenico.jpos.MessageHandler_Telium">
+		<level value="warn" />
+		<appender-ref ref="FILE" />
+	</logger>
+
+
+    <logger name="com.ingenico.jpos.services">
+        <level value="warn" />
+        <appender-ref ref="FILE" />
+    </logger>
+
+	<logger name="com.ingenico.jpos.app">
+		<level value="warn" />
+		<appender-ref ref="FILE" />
+	</logger>
+
+	<logger name="com.ingenico.jpos.scripts">
+		<level value="info" />
+		<appender-ref ref="LF5Appender" />
+	</logger>
+
+	<logger name="com.ingenico.jpos.app.telium">
+		<level value="info" />
+		<appender-ref ref="FILE" />
+	</logger>
+
+    <root>
+        <level value="DEBUG" />
+        <appender-ref ref="FILE" />
+        <appender-ref ref="Console" />
+    </root>
+</log4j:configuration>

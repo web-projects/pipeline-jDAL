@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Created-By: 1.0.0_01 (TrustCommerce)
+Main-Class: com.trustcommerce.dal.ingenico.IngenicoApp
+Name: trustcommerce/ingenico/
+Specification-Title: Java Ingenico Device Interface (JIDI)
+Specification-Version: 1.1
+Specification-Vendor: Trust Commerce
+Implementation-Title: com.trustcommerce.ingenico 
+Implementation-Version: build01
+Implementation-Vendor: Trust Commerce
+

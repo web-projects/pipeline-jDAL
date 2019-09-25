@@ -1,0 +1,144 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>tcIngenico</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0.1-SNAPSHOT</version>
+  <name>DAL Main Manager</name>
+  <url>http://maven.apache.org</url>
+  <description>Main Entry point to Process Transactions</description>
+
+  <parent>
+      <groupId>com.trustcommerce.dal</groupId>
+      <artifactId>tcipa-parent</artifactId>
+      <version>1.0</version>
+      <relativePath>../ParentPom/pom.xml</relativePath>
+  </parent>
+    
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+    
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-assembly-plugin</artifactId>
+      <executions>
+          <execution>
+              <id>make-executable-jar-with-dependencies</id>
+              <phase>package</phase>
+              <goals>
+                <goal>single</goal>
+              </goals>
+              <configuration>
+                  <archive>
+                    <manifest>
+                      <addClasspath>true</addClasspath>
+                      <mainClass>org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader</mainClass>
+                    </manifest>
+                    <manifestEntries>
+	                    <Rsrc-Class-Path>./ jackson-core-asl-1.9.13.jar jackson-mapper-asl-1.9.13.jar slf4j-api-1.7.21.jar
+                      slf4j-log4j12-1.7.21.jar gson-2.2.4.jar log4j-1.2.14.jar commons-exec-1.2.jar httpclient-4.5.1.jar
+                      httpcore-4.4.3.jar ijpos113_svcs_sun.jar jpos113.jar commons-codec-1.9.jar
+                      </Rsrc-Class-Path>
+                      <Rsrc-Main-Class>com.trustcommerce.ipa.dal.bridge.socket.DalActivator</Rsrc-Main-Class>
+                      <Class-Path>.</Class-Path>
+                    </manifestEntries>
+                  </archive>
+                  <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                  </descriptorRefs>
+              </configuration>
+          </execution>
+        </executions>
+      </plugin>
+        
+    </plugins>
+  </build>
+  
+  <dependencies>
+  
+     <dependency>
+        <groupId>com.trustcommerce.dal</groupId>
+        <artifactId>DalInterfaces</artifactId>
+        <scope>compile</scope>
+        <version>1.0.1-SNAPSHOT</version>
+    </dependency>
+  
+    <dependency>
+        <groupId>com.trustcommerce.dal</groupId>
+        <artifactId>ResourcesManager</artifactId>
+        <scope>compile</scope>
+        <version>1.0.1-SNAPSHOT</version>
+    </dependency>
+    
+    <dependency>
+        <groupId>com.trustcommerce.dal</groupId>
+        <artifactId>CommonConstants</artifactId>
+        <scope>compile</scope>
+        <version>1.0.1-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+        <groupId>com.trustcommerce.dal</groupId>
+        <artifactId>EMVConstants</artifactId>
+        <scope>compile</scope>
+        <version>1.0.1-SNAPSHOT</version>
+    </dependency>
+    
+    <dependency>
+        <groupId>com.trustcommerce.dal</groupId>
+        <artifactId>LogManager</artifactId>
+        <scope>compile</scope>
+        <version>1.0.1-SNAPSHOT</version>
+    </dependency>
+    
+    <dependency>
+        <groupId>com.trustcommerce.dal</groupId>
+        <artifactId>ConfigurationManager</artifactId>
+        <scope>compile</scope>
+        <version>1.0.1-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+        <groupId>com.trustcommerce.dal</groupId>
+        <artifactId>CommPortManager</artifactId>
+        <scope>compile</scope>
+        <version>1.0.1-SNAPSHOT</version>
+    </dependency>
+    
+     <dependency>
+        <groupId>com.trustcommerce.dal</groupId>
+        <artifactId>ModelObjectsManager</artifactId>
+        <scope>compile</scope>
+        <version>1.0.1-SNAPSHOT</version>
+    </dependency>
+ 
+    <dependency>
+        <groupId>com.trustcommerce.dal</groupId>
+        <artifactId>GuiManager</artifactId>
+        <scope>compile</scope>
+        <version>1.0.1-SNAPSHOT</version>
+    </dependency>
+    
+    <dependency>
+        <groupId>com.trustcommerce.dal</groupId>
+        <artifactId>DeviceManager</artifactId>
+        <scope>compile</scope>
+        <version>1.0.1-SNAPSHOT</version>
+    </dependency>
+    
+    <dependency>
+        <groupId>com.trustcommerce.dal</groupId>
+        <artifactId>jdalWebService</artifactId>
+        <scope>compile</scope>
+        <version>1.0.1-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.jdt.internal</groupId>
+      <artifactId>jar-in-jar-loader</artifactId>
+      <version>1.1</version>
+    </dependency>
+    
+  </dependencies>
+  
+</project>

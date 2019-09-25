@@ -1,0 +1,117 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.trustcommerce.dal</groupId>
+  <artifactId>tcipa-parent</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0</version>
+  <name>DAL - Parent Project</name>
+    
+	<properties>
+	  <JAVA_32_HOME>C:\TrustCommerce\devices\ingenico\jre7</JAVA_32_HOME>
+	  <JAVA_HOME>C:\TrustCommerce\devices\ingenico\jre7</JAVA_HOME>
+	  <jdk.version>1.7</jdk.version>
+	  <log4j.version>1.2.17</log4j.version>
+	  <!-- Maven Plugins Version -->
+    <eclipse.version>2.9</eclipse.version>
+    <TC_HOME>C:\TrustCommerce</TC_HOME>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+  
+  <modules>
+    <module>../DalInterfaces</module>
+    <module>../ResourcesManager</module>
+    <module>../CommonConstants</module>
+    <module>../EMVConstants</module>
+    <module>../LogManager</module>
+    <module>../CommPortManager</module>
+    <module>../ConfigurationManager</module>
+    <module>../ModelObjectsManager</module>
+    <module>../ConnectivityManager</module>
+    <module>../DeviceManager</module>
+    <module>../GuiManager</module>
+    <module>../jdalWebService</module>
+    <module>../MainManager</module>
+  </modules>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+      
+        <!-- download source code in Eclipse, best practice -->
+	      <plugin>
+		          <groupId>org.apache.maven.plugins</groupId>
+		          <artifactId>maven-eclipse-plugin</artifactId>
+		          <version>${eclipse.version}</version>
+		          <configuration>
+		            <downloadSources>true</downloadSources>
+		            <downloadJavadocs>true</downloadJavadocs>
+		          </configuration>
+		      </plugin>
+
+        <!-- Set a compiler level -->      
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.5.1</version>
+          <configuration>
+            <source>${jdk.version}</source>
+            <target>${jdk.version}</target>
+          </configuration>      
+        </plugin>
+        
+        
+      </plugins>
+    </pluginManagement>
+  </build>
+
+  <dependencies>
+   
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.21</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.7.21</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-mapper-asl -->
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
+      <version>1.9.13</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-mapper-asl -->
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-core-asl</artifactId>
+      <version>1.9.13</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.7</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.10</version>
+    </dependency>
+     
+  </dependencies>
+ 
+  <organization>
+  	<name>TrustCommerce</name>
+  	<url>http://www.trustcommerce.com/</url>
+  </organization>
+  <scm>
+  	<developerConnection>Jon Bianco</developerConnection>
+  </scm>
+  <description>Parent POM for TCIPA DAL</description>
+</project>

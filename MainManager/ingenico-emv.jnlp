@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp spec="1.0+" codebase="" href="">
+    <information>
+        <title>Ingenico Applet</title>
+        <vendor>TrustCommerce</vendor>
+    </information>
+    <resources>
+        <!-- Application Resources -->
+        <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+        <jar href="tcingenico-emv.jar" main="true"/>
+        <jar href="jpos113.jar"/>
+    	<jar href="ijpos113_svcs_sun.jar"/>
+    	<jar href="commons-codec-1.9.jar"/>
+		<jar href="gson-2.2.4.jar" />
+    </resources>
+    <applet-desc 
+         name="Ingenico Applet"
+         main-class="com.trustcommerce.ingenico.IngenicoApplet"
+         width="450"
+         height="300">
+     </applet-desc>
+     <security>
+     	<all-permissions/>
+    </security>
+</jnlp>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration>
+
+	<!--appender name="LF5Appender"
+		class="org.apache.log4j.lf5.LF5Appender">
+		<param name="MaxNumberOfRecords" value="2000" />
+	</appender -->
+
+	<appender name="FILE" class="org.apache.log4j.RollingFileAppender">
+		<param name="file" value="C:/ProgramData/Ingenico/TeliumOPOS/logs/jpos_telium.log" />
+		<param name="append" value="true" />
+		<param name="MaxFileSize" value="500KB"/>
+      	<param name="MaxBackupIndex" value="3"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d %-5p [%t] %C{2} (%F:%L) - %m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="Console" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d %-5p [%t] %C{2} (%F:%L) - %m%n" />
+		</layout>
+	</appender>
+
+	<logger name="com.ingenico.comm">
+		<level value="info" />
+		<appender-ref ref="FILE" />
+	</logger>
+
+	<logger name="com.ingenico.form">
+		<level value="info" />
+		<appender-ref ref="FILE" />
+	</logger>
+
+	<logger name="com.ingenico.jpos">
+		<level value="info" />
+		<appender-ref ref="FILE" />
+	</logger>
+
+	<logger name="com.ingenico.api.jpos.IngenicoLogger">
+		<level value="info" />
+		<appender-ref ref="FILE" />
+	</logger>
+
+</log4j:configuration>
