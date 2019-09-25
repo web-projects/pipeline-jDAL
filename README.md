@@ -31,6 +31,7 @@ This a Java pipeline exercise.
 
 * Pipeline
 ### https://ss-lazio.visualstudio.com/pipelines-java
+[![Build Status](https://ss-lazio.visualstudio.com/web-projects.pipeline-jDAL/_apis/build/status/web-projects.pipeline-jDAL?branchName=master)](https://ss-lazio.visualstudio.com/web-projects.pipeline-jDAL/_build/latest?definitionId=1&branchName=master)
 
 * How to run tests
 * Deployment instructions
