@@ -9,7 +9,7 @@
   <packaging>pom</packaging>
   <version>1.0</version>
   <name>DAL - Parent Project</name>
-    
+
 	<properties>
 	  <JAVA_32_HOME>C:\TrustCommerce\devices\ingenico\jre7</JAVA_32_HOME>
 	  <JAVA_HOME>C:\TrustCommerce\devices\ingenico\jre7</JAVA_HOME>
@@ -20,7 +20,7 @@
     <TC_HOME>C:\TrustCommerce</TC_HOME>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-  
+
   <modules>
     <module>../DalInterfaces</module>
     <module>../ResourcesManager</module>
@@ -40,7 +40,7 @@
   <build>
     <pluginManagement>
       <plugins>
-      
+
         <!-- download source code in Eclipse, best practice -->
 	      <plugin>
 		          <groupId>org.apache.maven.plugins</groupId>
@@ -52,7 +52,7 @@
 		          </configuration>
 		      </plugin>
 
-        <!-- Set a compiler level -->      
+        <!-- Set a compiler level -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
@@ -60,16 +60,36 @@
           <configuration>
             <source>${jdk.version}</source>
             <target>${jdk.version}</target>
-          </configuration>      
+          </configuration>
         </plugin>
-        
-        
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>2.3.1</version>
+          <executions>
+              <execution>
+                  <phase>initialize</phase>
+                  <goals>
+                      <goal>install-file</goal>
+                  </goals>
+                  <configuration>
+                      <groupId>org.eclipse.jdt.internal</groupId>
+                      <artifactId>jar-in-jar-loader</artifactId>
+                      <version>1.1</version>
+                      <packaging>jar</packaging>
+                      <file>${basedir}/LibsManager/libs/jar-in-jar-loader-1.1.jar</file>
+                  </configuration>
+              </execution>
+          </executions>
+        </plugin>
+
       </plugins>
     </pluginManagement>
   </build>
 
   <dependencies>
-   
+
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
@@ -103,9 +123,15 @@
       <artifactId>commons-codec</artifactId>
       <version>1.10</version>
     </dependency>
-     
+
+    <dependency>
+      <groupId>org.eclipse.jdt.internal</groupId>
+      <artifactId>jar-in-jar-loader</artifactId>
+      <version>1.1</version>
+    </dependency>
+
   </dependencies>
- 
+
   <organization>
   	<name>TrustCommerce</name>
   	<url>http://www.trustcommerce.com/</url>
