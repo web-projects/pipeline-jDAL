@@ -28,7 +28,7 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-     targetPath: '$(System.DefaultWorkingDirectory)/MainManager/target/tcIngenico.jar'
+     targetPath: '$(System.DefaultWorkingDirectory)/MainManager/target/tcIngenico-1.0.1-SNAPSHOT-jar-with-dependencies.jar'
      artifact: 'tcIngenico.jar'
 - script: |
    echo Renaming Main artifact...
