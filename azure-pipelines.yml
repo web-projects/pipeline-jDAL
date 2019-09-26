@@ -42,9 +42,12 @@ steps:
     testResultsFiles: '**/TEST-*.xml'
     goals: 'clean install'
 
-- task: DownloadPipelineArtifact@2
+- task: DownloadBuildArtifacts@0
   inputs:
-    patterns: '**/*.jar'
+    buildType: current
+    downloadType: single
+    artifactName: 'jar file'
+    downloadPath: '$(System.ArtifactsDirectory)'
 
 #- script: |
 #    echo Add other tasks to build, test, and deploy your project.
