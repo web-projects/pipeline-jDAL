@@ -26,13 +26,13 @@ steps:
     testResultsFiles: '**/TEST-*.xml'
     goals: 'clean install'
 
-- task: PublishPipelineArtifact@1
-  inputs:
-     targetPath: '$(System.DefaultWorkingDirectory)/MainManager/target/tcIngenico-1.0.1-SNAPSHOT-jar-with-dependencies.jar'
-     artifact: 'tcIngenico.jar'
 - script: |
    echo Renaming Main artifact...
    mv $(System.DefaultWorkingDirectory)/MainManager/target/tcIngenico-1.0.1-SNAPSHOT-jar-with-dependencies.jar tcIngenico.jar
+- task: PublishPipelineArtifact@1
+  inputs:
+     targetPath: '$(System.DefaultWorkingDirectory)/MainManager/target/tcIngenico.jar'
+     artifact: 'tcIngenico.jar'
 
 - task: DownloadPipelineArtifact@2
   inputs:
