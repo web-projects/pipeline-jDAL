@@ -47,7 +47,7 @@ steps:
 - task: PublishPipelineArtifact@1
   inputs:
      targetPath: '$(System.DefaultWorkingDirectory)/jDAL'
-     artifact: 'TrustCommerce'
+     artifact: 'jDAL'
 
 - task: DownloadPipelineArtifact@2
   inputs:
