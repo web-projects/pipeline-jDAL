@@ -56,3 +56,12 @@ steps:
   inputs:
     path: '$(Pipeline.Workspace)'
     artifact: 'fileUploader-1.0.1-SNAPSHOT-jar-with-dependencies.jar'
+
+# jDAL Directory
+- task: PublishPipelineArtifact@1
+  inputs:
+     targetPath: '$(System.DefaultWorkingDirectory)/jDAL'
+
+- task: DownloadPipelineArtifact@2
+  inputs:
+    path: '$(Pipeline.Workspace)'
