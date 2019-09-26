@@ -38,8 +38,14 @@ steps:
     goals: 'clean install'
 
 - task: PublishPipelineArtifact@1
+  inputs:
+     targetPath: '$(System.DefaultWorkingDirectory)/MainManager/target'
+     artifact: 'tcIngenico-1.0.1-SNAPSHOT-jar-with-dependencies.jar'
 
 - task: DownloadPipelineArtifact@2
+  inputs:
+    path: '$(Pipeline.Workspace)'
+    artifact: 'tcIngenico-1.0.1-SNAPSHOT-jar-with-dependencies.jar'
 
 #- task: PublishBuildArtifacts@1
 #  inputs:
