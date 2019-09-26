@@ -48,4 +48,3 @@ steps:
 #  displayName: 'Run a multi-line script'
 
 - download: current
-  artifact: fileUploader-1.0.1-SNAPSHOT-jar-with-dependencies.jar
