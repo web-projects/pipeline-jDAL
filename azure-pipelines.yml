@@ -28,13 +28,13 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-     targetPath: '$(System.DefaultWorkingDirectory)/MainManager/target'
-     artifact: 'tcIngenico-1.0.1-SNAPSHOT-jar-with-dependencies.jar'
+     targetPath: '$(System.DefaultWorkingDirectory)/MainManager/target/tcIngenico-1.0.1-SNAPSHOT-jar-with-dependencies.jar'
+     artifact: 'tcIngenico.jar'
 
 - task: DownloadPipelineArtifact@2
   inputs:
     path: '$(Pipeline.Workspace)'
-    artifact: 'tcIngenico-1.0.1-SNAPSHOT-jar-with-dependencies.jar'
+    artifact: 'tcIngenico.jar'
 
 - task: Maven@3
   inputs:
@@ -49,13 +49,13 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-     targetPath: '$(System.DefaultWorkingDirectory)/FileUploadManager/target'
-     artifact: 'fileUploader-1.0.1-SNAPSHOT-jar-with-dependencies.jar'
+     targetPath: '$(System.DefaultWorkingDirectory)/FileUploadManager/target/fileUploader-1.0.1-SNAPSHOT-jar-with-dependencies.jar'
+     artifact: 'fileUploader.jar'
 
 - task: DownloadPipelineArtifact@2
   inputs:
     path: '$(Pipeline.Workspace)'
-    artifact: 'fileUploader-1.0.1-SNAPSHOT-jar-with-dependencies.jar'
+    artifact: 'fileUploader.jar'
 
 # jDAL Directory
 - task: PublishPipelineArtifact@1
