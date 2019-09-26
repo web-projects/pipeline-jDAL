@@ -61,9 +61,9 @@ steps:
 - task: PublishPipelineArtifact@1
   inputs:
      targetPath: '$(System.DefaultWorkingDirectory)/jDAL'
-     artifact: 'jDAL Directory'
+     artifact: 'jDAL'
 
 - task: DownloadPipelineArtifact@2
   inputs:
     path: '$(Pipeline.Workspace)'
-    artifact: 'jDAL Directory'
+    artifact: 'jDAL'
