@@ -52,4 +52,4 @@ steps:
 - task: DownloadPipelineArtifact@2
   inputs:
     path: '$(Pipeline.Workspace)'
-    artifact: 'TrustCommerce'
+    artifact: 'jDAL'
