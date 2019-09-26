@@ -26,6 +26,16 @@ steps:
     testResultsFiles: '**/TEST-*.xml'
     goals: 'clean install'
 
+- task: PublishPipelineArtifact@1
+  inputs:
+     targetPath: '$(System.DefaultWorkingDirectory)/MainManager/target'
+     artifact: 'tcIngenico-1.0.1-SNAPSHOT-jar-with-dependencies.jar'
+
+- task: DownloadPipelineArtifact@2
+  inputs:
+    path: '$(Pipeline.Workspace)'
+    artifact: 'tcIngenico-1.0.1-SNAPSHOT-jar-with-dependencies.jar'
+
 - task: Maven@3
   inputs:
     mavenPomFile: 'ParentPomUploader/pom.xml'
@@ -39,28 +49,10 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-     targetPath: '$(System.DefaultWorkingDirectory)/MainManager/target'
-     artifact: 'tcIngenico-1.0.1-SNAPSHOT-jar-with-dependencies.jar'
+     targetPath: '$(System.DefaultWorkingDirectory)/FileUploadManager/target'
+     artifact: 'fileUploader-1.0.1-SNAPSHOT-jar-with-dependencies.jar'
 
 - task: DownloadPipelineArtifact@2
   inputs:
     path: '$(Pipeline.Workspace)'
-    artifact: 'tcIngenico-1.0.1-SNAPSHOT-jar-with-dependencies.jar'
-
-#- task: PublishBuildArtifacts@1
-#  inputs:
-#    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-#    artifactName: 'drop'
-
-#- task: DownloadBuildArtifacts@0
-#  inputs:
-#    buildType: 'current'
-#    downloadType: 'single'
-#    artifactName: 'drop'
-#    downloadPath: '$(System.ArtifactsDirectory)'
-
-#- script: |
-#    echo Add other tasks to build, test, and deploy your project.
-#    echo See https://aka.ms/yaml
-#  displayName: 'Run a multi-line script'
-
+    artifact: 'fileUploader-1.0.1-SNAPSHOT-jar-with-dependencies.jar'
