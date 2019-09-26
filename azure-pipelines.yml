@@ -15,6 +15,7 @@ pool:
 
 steps:
 
+# Build tcIngenico.jar artifact
 - task: Maven@3
   inputs:
     mavenPomFile: 'ParentPom/pom.xml'
@@ -29,6 +30,7 @@ steps:
    echo Copying tcIngenico.jar artifact...
    mv $(System.DefaultWorkingDirectory)/MainManager/target/tcIngenico-1.0.1-SNAPSHOT-jar-with-dependencies.jar $(System.DefaultWorkingDirectory)/jDAL/tcIngenico.jar
 
+# Build fileUploader.jar artifact
 - task: Maven@3
   inputs:
     mavenPomFile: 'ParentPomUploader/pom.xml'
