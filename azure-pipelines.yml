@@ -29,19 +29,6 @@ steps:
    echo Copying tcIngenico.jar artifact...
    mv $(System.DefaultWorkingDirectory)/MainManager/target/tcIngenico-1.0.1-SNAPSHOT-jar-with-dependencies.jar $(System.DefaultWorkingDirectory)/jDAL/tcIngenico.jar
 
-#- task: PublishPipelineArtifact@1
-#  inputs:
-#     targetPath: '$(System.DefaultWorkingDirectory)/MainManager/target/tcIngenico-1.0.1-SNAPSHOT-jar-with-dependencies.jar'
-#     artifact: 'tcIngenico.jar'
-#- script: |
-#   echo Renaming Main artifact...
-#   mv $(System.DefaultWorkingDirectory)/MainManager/target/tcIngenico-1.0.1-SNAPSHOT-jar-with-dependencies.jar $(System.DefaultWorkingDirectory)/jDAL/tcIngenico.jar
-
-#- task: DownloadPipelineArtifact@2
-#  inputs:
-#    path: '$(Pipeline.Workspace)'
-#    artifact: 'tcIngenico.jar'
-
 - task: Maven@3
   inputs:
     mavenPomFile: 'ParentPomUploader/pom.xml'
@@ -56,21 +43,7 @@ steps:
    echo Copying fileUploader.jar artifact...
    mv $(System.DefaultWorkingDirectory)/FileUploadManager/target/fileUploader-1.0.1-SNAPSHOT-jar-with-dependencies.jar $(System.DefaultWorkingDirectory)/jDAL/fileUploader.jar
 
-
-#- task: PublishPipelineArtifact@1
-#  inputs:
-#     targetPath: '$(System.DefaultWorkingDirectory)/FileUploadManager/target/fileUploader-1.0.1-SNAPSHOT-jar-with-dependencies.jar'
-#     artifact: 'fileUploader.jar'
-#- script: |
-#   echo Renaming fileUploader artifact...
-#   mv $(System.DefaultWorkingDirectory)/FileUploadManager/target/fileUploader-1.0.1-SNAPSHOT-jar-with-dependencies.jar $(System.DefaultWorkingDirectory)/jDAL/fileUploader.jar
-
-#- task: DownloadPipelineArtifact@2
-#  inputs:
-#    path: '$(Pipeline.Workspace)'
-#    artifact: 'fileUploader.jar'
-
-# jDAL Directory
+# FINAL ARTIFACT: jDAL Directory
 - task: PublishPipelineArtifact@1
   inputs:
      targetPath: '$(System.DefaultWorkingDirectory)/jDAL'
