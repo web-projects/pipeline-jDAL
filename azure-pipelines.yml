@@ -30,6 +30,9 @@ steps:
   inputs:
      targetPath: '$(System.DefaultWorkingDirectory)/MainManager/target/tcIngenico-1.0.1-SNAPSHOT-jar-with-dependencies.jar'
      artifact: 'tcIngenico.jar'
+- script: |
+   echo Renaming Main artifact... |
+   ren tcIngenico-1.0.1-SNAPSHOT-jar-with-dependencies.jar tcIngenico.jar
 
 - task: DownloadPipelineArtifact@2
   inputs:
