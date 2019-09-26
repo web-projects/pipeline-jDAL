@@ -43,6 +43,8 @@ steps:
     goals: 'clean install'
 
 - task: DownloadPipelineArtifact@2
+  inputs:
+    patterns: '**/*.jar'
 
 #- script: |
 #    echo Add other tasks to build, test, and deploy your project.
