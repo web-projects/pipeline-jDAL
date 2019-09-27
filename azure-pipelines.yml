@@ -28,7 +28,7 @@ steps:
     goals: 'clean install'
 - script: |
    echo Copying tcIngenico.jar artifact...
-   mv $(System.DefaultWorkingDirectory)/MainManager/target/tcIngenico-1.0.1-SNAPSHOT-jar-with-dependencies.jar $(System.DefaultWorkingDirectory)/jDAL/tcIngenico.jar
+   cp $(System.DefaultWorkingDirectory)/MainManager/target/tcIngenico-1.0.1-SNAPSHOT-jar-with-dependencies.jar $(System.DefaultWorkingDirectory)/jDAL/tcIngenico.jar
 
 # Build fileUploader.jar artifact
 - task: Maven@3
@@ -43,7 +43,7 @@ steps:
     goals: 'clean install'
 - script: |
    echo Copying fileUploader.jar artifact...
-   mv $(System.DefaultWorkingDirectory)/FileUploadManager/target/fileUploader-1.0.1-SNAPSHOT-jar-with-dependencies.jar $(System.DefaultWorkingDirectory)/jDAL/fileUploader.jar
+   cp $(System.DefaultWorkingDirectory)/FileUploadManager/target/fileUploader-1.0.1-SNAPSHOT-jar-with-dependencies.jar $(System.DefaultWorkingDirectory)/jDAL/fileUploader.jar
 
 # FINAL ARTIFACT: jDAL Directory
 - task: PublishPipelineArtifact@1
